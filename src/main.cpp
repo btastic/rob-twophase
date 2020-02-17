@@ -131,21 +131,25 @@ int main(int argc, char * argv[]) {
 
   solver.prepare();
 
-  if (!face.empty()) {
-      std::string fcube;
-      fcube = face;
-      int err = face::to_cubie(fcube, c);
-      if (err != 0) {
-          std::cout << "Face-error " << err << "." << std::endl;
-          return;
-      }
-      err = cubie::check(c);
-      if (err != 0) {
-          std::cout << "Cubie-error " << err << "." << std::endl;
-          continue;
-      }
-      break;
+  if (face.empty()) {
+    std::cout << "No face was given. Exiting ..." << std::endl << std::endl;
+    solver.finish(); // clean exit
+    return 0;
   }
+
+  std::string fcube;
+  fcube = face;
+  int err = face::to_cubie(fcube, c);
+  if (err != 0) {
+      std::cout << "Face-error " << err << "." << std::endl;
+      return;
+  }
+  err = cubie::check(c);
+  if (err != 0) {
+      std::cout << "Cubie-error " << err << "." << std::endl;
+      continue;
+  }
+  break;
 
   solver.solve(c, sols);
 
