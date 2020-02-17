@@ -129,8 +129,7 @@ int main(int argc, char * argv[]) {
 
   cubie::cube c;
   std::vector<std::vector<int>> sols;
-  solver.prepare();
-
+  
   if (face.empty()) {
     std::cout << "No face was given. Exiting ..." << std::endl << std::endl;
     solver.finish(); // clean exit
@@ -155,7 +154,7 @@ int main(int argc, char * argv[]) {
 	  solver.finish(); // clean exit
       return -1;
   }
-
+  solver.prepare();
   solver.solve(c, sols);
 
   for (std::vector < int > & sol: sols) {
