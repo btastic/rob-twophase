@@ -133,6 +133,7 @@ int main(int argc, char * argv[]) {
 
   if (face.empty()) {
     std::cout << "No face was given. Exiting ..." << std::endl << std::endl;
+    solver.finish(); // clean exit
     return 0;
   }
 
