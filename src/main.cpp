@@ -128,7 +128,7 @@ int main(int argc, char * argv[]) {
   warmup(solver, n_warmups);
 
   cubie::cube c;
-
+  std::vector<std::vector<int>> sols;
   solver.prepare();
 
   if (face.empty()) {
@@ -139,17 +139,20 @@ int main(int argc, char * argv[]) {
 
   std::string fcube;
   fcube = face;
+  
   int err = face::to_cubie(fcube, c);
+  
   if (err != 0) {
       std::cout << "Face-error " << err << "." << std::endl;
-      return;
+      return -1;
   }
+  
   err = cubie::check(c);
+  
   if (err != 0) {
       std::cout << "Cubie-error " << err << "." << std::endl;
-      continue;
+      return -1;
   }
-  break;
 
   solver.solve(c, sols);
 
