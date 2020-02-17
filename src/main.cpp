@@ -144,6 +144,7 @@ int main(int argc, char * argv[]) {
   
   if (err != 0) {
       std::cout << "Face-error " << err << "." << std::endl;
+	  solver.finish(); // clean exit
       return -1;
   }
   
@@ -151,6 +152,7 @@ int main(int argc, char * argv[]) {
   
   if (err != 0) {
       std::cout << "Cubie-error " << err << "." << std::endl;
+	  solver.finish(); // clean exit
       return -1;
   }
 
