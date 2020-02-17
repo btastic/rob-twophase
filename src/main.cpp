@@ -142,6 +142,7 @@ int main(int argc, char * argv[]) {
   int err = face::to_cubie(fcube, c);
   
   if (err != 0) {
+	  std::cout << fcube << std::endl;
       std::cout << "Face-error " << err << "." << std::endl;
 	  solver.finish(); // clean exit
       return -1;
