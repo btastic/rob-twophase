@@ -78,9 +78,9 @@ int main(int argc, char * argv[]) {
 
   try {
     int opt;
-    while ((opt = getopt(argc, argv, "cl:m:n:s:t:w:solve:")) != -1) {
+    while ((opt = getopt(argc, argv, "cl:m:n:s:t:w:f:")) != -1) {
       switch (opt) {
-      case 'solve':
+      case 'f':
         face = optarg;
       case 'c':
         compress = true;
