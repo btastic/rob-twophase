@@ -159,14 +159,12 @@ int main(int argc, char * argv[]) {
   solver.solve(c, sols);
 
   for (std::vector < int > & sol: sols) {
-    int len = sol.size(); // always print uncompressed length
     if (compress)
       std::cout << move::compress(sol) << " ";
     else {
       for (int m: sol)
         std::cout << move::names[m] << " ";
     }
-    std::cout << "(" << len << ")" << std::endl;
   }
 
   solver.finish(); // clean exit
